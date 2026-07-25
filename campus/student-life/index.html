@@ -6,10 +6,16 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Events, festivals, competitions and student achievements at MIT Mumbai.">
   <link rel="canonical" href="https://mitmumbai-demo.vishwanathgrid.org/campus/student-life/">
-  <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/tokens.css?v=20260725h">
-  <link rel="stylesheet" href="/assets/site.css?v=20260725h">
+  <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/tokens.css?v=20260726b">
+  <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/media.css?v=20260726b">
+  <link rel="stylesheet" href="/assets/site.css?v=20260726b">
   <script>(function(){try{var t=localStorage.getItem("mit-mumbai-theme");if(t!=="light"&&t!=="dark")t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}})();</script>
-  <script src="/assets/site.js?v=20260725h" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/hero-task.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/navigation.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/gallery.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/horizontal-rail.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/directory-filter.js?v=20260726b" defer></script>
+  <script src="/assets/site.js?v=20260726b" defer></script>
   <title>Student life — MIT Mumbai</title>
 </head>
 <body>
@@ -20,15 +26,68 @@
         <img class="brand-mark" src="/assets/media/mit-mumbai-logo.png" alt="" width="44" height="44">
         <span class="brand-text">MIT Mumbai</span>
       </a>
-      <nav class="site-nav" aria-label="Primary"><a href="/academics/">Academics</a><a href="/admissions/">Admissions</a><a href="/research/">Research</a><a href="/people/">People</a><a href="/campus/" aria-current="page">Campus</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+      <button class="uwp-nav-toggle" type="button" data-uwp-nav-toggle
+        aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span aria-hidden="true"></span>
+      </button>
+      <nav class="uwp-nav site-nav" id="primary-nav" aria-label="Primary" data-uwp-nav><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/academics/">Academics</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Academics submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/academics/">All programmes</a><div class="uwp-nav-branch"><span>Engineering</span><div class="uwp-nav-flyout"><a href="/academics/computer-science-and-engineering/">Computer Science and Engineering</a><a href="/academics/computer-science-and-engineering-ai-ml/">CSE (AI &amp; Machine Learning)</a><a href="/academics/information-technology/">Information Technology</a><a href="/academics/electronics-and-communication-engineering/">Electronics and Communication</a></div></div><div class="uwp-nav-branch"><span>Management</span><div class="uwp-nav-flyout"><a href="/academics/bachelor-of-management-studies/">Bachelor of Management Studies</a><a href="/academics/master-of-management-studies/">Master of Management Studies</a></div></div><a href="/academics/calendar/">Calendar and regulations</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/admissions/">Admissions</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/research/">Research</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/people/">People</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="People submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/people/">Faculty directory</a><a href="/about/leadership/">Leadership</a><a href="/about/governance/">Governance</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/campus/" aria-current="page">Campus</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Campus submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/campus/">Campus and facilities</a><a href="/campus/library/">Central Library</a><a href="/campus/student-life/">Student life</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/about/">About</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="About submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/about/">Vision and mission</a><a href="/about/founder/">Founder</a><a href="/about/legacy/">MAEER legacy and the MIT dome</a><a href="/about/quality/">Quality and compliance</a><a href="/about/committees/">Statutory committees</a><a href="/about/partnerships/">Industry partnerships</a><a href="/careers/">Work at MIT Mumbai</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/contact/">Contact</a></div></nav>
       <button class="theme-toggle" type="button" data-theme-toggle
         aria-label="Switch colour theme" aria-pressed="false"></button>
     </div>
   </header>
+  <div class="notice-bar"><div class="notice-inner"><span class="notice-label">Notices</span><ul class="notice-list" aria-label="Institute notices"><li>Admissions open for 2025–26</li><li>First-year induction programme concluded</li><li>TechSphere 2025 project exhibition held on 17 November</li><li>AICTE feedback facility open for students and faculty</li></ul></div></div>
   <main id="main" class="shell">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">MIT Mumbai</a> <span aria-hidden="true">/</span> <span aria-current="page">Student life</span></nav>
     <h1>Student life</h1>
 
+    <section class="section" data-uwp-component="horizontal-rail" aria-labelledby="events-heading">
+      <div class="section-heading"><h2 id="events-heading">Recent events</h2></div>
+      <div class="uwp-rail-shell">
+        <button type="button" class="uwp-rail-button" data-uwp-rail-previous aria-label="Previous events">‹</button>
+        <div class="uwp-rail" tabindex="0" aria-label="Recent events at MIT Mumbai" data-uwp-rail>
+        <article class="uwp-card uwp-event-card event-card">
+          <img src="/assets/media/info-problem-based-solving-min.jpg" alt="" width="600" height="360" loading="lazy">
+          <div class="event-body">
+            <p class="uwp-meta"><time datetime="2025-11-17">17 November 2025</time></p>
+            <h3>TechSphere 2025 — First Year Engineering project exhibition</h3>
+            <p>A project exhibition-cum-competition showcasing first-year engineering ideas.</p>
+          </div>
+        </article>
+        <article class="uwp-card uwp-event-card event-card">
+          <img src="/assets/media/gallery-mit-gallery_17.jpg" alt="" width="600" height="360" loading="lazy">
+          <div class="event-body">
+            <p class="uwp-meta"><time datetime="2025-10-01">1 October 2025</time></p>
+            <h3>Khandenavami and Garba celebration</h3>
+            <p>The campus marked Khandenavami with music, colour and a Garba evening.</p>
+          </div>
+        </article>
+        <article class="uwp-card uwp-event-card event-card">
+          <img src="/assets/media/infra-Infra_13.jpg" alt="" width="600" height="360" loading="lazy">
+          <div class="event-body">
+            <p class="uwp-meta"><time datetime="2025-09-15">15 September 2025</time></p>
+            <h3>Engineers&#x27; Day 2025</h3>
+            <p>Engineers&#x27; Day celebrated the contribution and spirit of engineering.</p>
+          </div>
+        </article>
+        <article class="uwp-card uwp-event-card event-card">
+          <img src="/assets/media/infra-Infra_17.jpg" alt="" width="600" height="360" loading="lazy">
+          <div class="event-body">
+            <p class="uwp-meta"><time datetime="2025-09-05">5 September 2025</time></p>
+            <h3>First Year Engineering student induction</h3>
+            <p>Induction for newly admitted first-year engineering students.</p>
+          </div>
+        </article>
+        <article class="uwp-card uwp-event-card event-card">
+          <img src="/assets/media/infra-Infra_20.jpg" alt="" width="600" height="360" loading="lazy">
+          <div class="event-body">
+            <p class="uwp-meta"><time datetime="2025-06-10">10 June 2025</time></p>
+            <h3>DTE admission counselling at MIT Mumbai</h3>
+            <p>Counselling for aspiring students, delivered on campus by the DTE Officer on Special Duty.</p>
+          </div>
+        </article></div>
+        <button type="button" class="uwp-rail-button" data-uwp-rail-next aria-label="Next events">›</button>
+      </div>
+    </section>
     <section class="section"><h2>MIT Event</h2>
       <ul class="tick-list"><li>MIT Events</li><li>MIT Mumbai Events</li><li>Admission Counselling at MIT Mumbai by DTE and MS</li></ul>
       <p>Conducted counselling for aspiring students in MIT Mumbai campus. This was delivered by Prof. Yogesh Baliram Jamnik, Officer on Special Duty (OSD), Joint Director and Technical Education Regional Office, Bandra. More than 100 students and parents participated in the event and got the information about the documents required, CAP round and initial level admission process.</p>

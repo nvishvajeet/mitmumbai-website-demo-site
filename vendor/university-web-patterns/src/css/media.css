@@ -1,0 +1,205 @@
+/* Media patterns: pictures, portraits, evidence strips and task-first heroes.
+
+   Added in 0.7.0 after a client rebuild read as thinner than the site it
+   replaced. The rebuild was better structured and lost on everything a visitor
+   sees first: no pictures on cards, a hero that opened on prose instead of on
+   the task, and no surface for the facts an institution publishes about itself.
+
+   These patterns are layout only. No client supplies media through this
+   package; a client stores its own images and passes their paths in. */
+
+/* ── pictures on cards ───────────────────────────────────────────────
+   A fixed aspect ratio reserves the space before the image arrives, so a
+   grid of cards does not reflow as pictures load. */
+
+.uwp-card--media {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.uwp-card__media {
+  display: block;
+  aspect-ratio: var(--uwp-card-media-ratio, 16 / 9);
+  background: var(--uwp-paper);
+  overflow: hidden;
+}
+
+.uwp-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
+
+.uwp-card--media:hover .uwp-card__media img {
+  transform: scale(1.035);
+}
+
+.uwp-card__body {
+  padding: var(--uwp-space-3);
+}
+
+.uwp-card__body > :first-child { margin-top: 0; }
+.uwp-card__body > :last-child { margin-bottom: 0; }
+
+/* A source with no published photograph gets a lettered tile. Filling the gap
+   with stock imagery would put a picture on the page that the institution
+   never published, which is a content claim, not a design choice. */
+.uwp-card__media--blank {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120% 120% at 20% 0%,
+      color-mix(in srgb, var(--uwp-brand) 20%, transparent), transparent 70%),
+    var(--uwp-paper);
+}
+
+.uwp-card__media--blank span {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: color-mix(in srgb, var(--uwp-brand) 70%, var(--uwp-ink));
+  opacity: .75;
+}
+
+.uwp-lead-media {
+  margin: 0 0 var(--uwp-space-3);
+  border: 1px solid var(--uwp-rule);
+  overflow: hidden;
+}
+
+.uwp-lead-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--uwp-lead-media-ratio, 21 / 9);
+  object-fit: cover;
+}
+
+/* ── portraits ───────────────────────────────────────────────────────
+   Directories carry many faces at small sizes; a fixed box keeps the rows
+   even whether or not a given person has a photograph. */
+
+.uwp-portrait {
+  flex: none;
+  width: var(--uwp-portrait-width, 72px);
+  height: var(--uwp-portrait-height, 90px);
+  object-fit: cover;
+  background: var(--uwp-paper);
+  border: 1px solid var(--uwp-rule);
+}
+
+.uwp-portrait--blank {
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: color-mix(in srgb, var(--uwp-brand) 75%, var(--uwp-ink));
+}
+
+.uwp-person-card {
+  display: flex;
+  gap: var(--uwp-space-2);
+  align-items: flex-start;
+}
+
+.uwp-person-card__body { min-width: 0; }
+
+.uwp-profile-head {
+  display: flex;
+  gap: var(--uwp-space-3);
+  align-items: center;
+  margin-bottom: var(--uwp-space-3);
+}
+
+.uwp-profile-head .uwp-portrait {
+  --uwp-portrait-width: 120px;
+  --uwp-portrait-height: 150px;
+}
+
+/* ── evidence strip ──────────────────────────────────────────────────
+   For accreditations, affiliations and other facts an institution publishes
+   about itself. Each entry is expected to carry a source in the client's own
+   data; this is the presentation only. */
+
+.uwp-evidence {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--uwp-rule);
+  border: 1px solid var(--uwp-rule);
+  overflow: hidden;
+}
+
+.uwp-evidence li {
+  display: grid;
+  gap: .2rem;
+  padding: var(--uwp-space-2) var(--uwp-space-3);
+  background: var(--uwp-paper);
+}
+
+.uwp-evidence strong { font-size: 1rem; }
+
+.uwp-evidence span {
+  font-size: .875rem;
+  color: var(--uwp-muted);
+}
+
+/* ── task-first hero ─────────────────────────────────────────────────
+   The first thing on a home page should be the thing most visitors came to
+   do. The control below is a real form: it submits to a listing page, and
+   scripting only upgrades it to a direct jump. */
+
+.uwp-hero-task {
+  margin-top: var(--uwp-space-3);
+  padding: var(--uwp-space-3);
+  background: var(--uwp-surface);
+  border: 1px solid var(--uwp-rule);
+}
+
+.uwp-hero-task > label {
+  display: block;
+  font-weight: 650;
+  margin-bottom: .5rem;
+}
+
+.uwp-hero-task__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+
+.uwp-hero-task select {
+  flex: 1 1 16rem;
+  min-width: 0;
+  min-height: 44px;
+  padding: .6rem .7rem;
+  font: inherit;
+  color: var(--uwp-ink);
+  background: var(--uwp-paper);
+  border: 1px solid var(--uwp-rule);
+}
+
+.uwp-hero-task__note {
+  margin: .7rem 0 0;
+  font-size: .875rem;
+  color: var(--uwp-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uwp-card__media img,
+  .uwp-card--media:hover .uwp-card__media img {
+    transition: none;
+    transform: none;
+  }
+}
+
+@media (max-width: 48rem) {
+  .uwp-profile-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

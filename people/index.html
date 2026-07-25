@@ -6,10 +6,16 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Faculty of MIT Mumbai across engineering, management and the basic sciences.">
   <link rel="canonical" href="https://mitmumbai-demo.vishwanathgrid.org/people/">
-  <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/tokens.css?v=20260725h">
-  <link rel="stylesheet" href="/assets/site.css?v=20260725h">
+  <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/tokens.css?v=20260726b">
+  <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/media.css?v=20260726b">
+  <link rel="stylesheet" href="/assets/site.css?v=20260726b">
   <script>(function(){try{var t=localStorage.getItem("mit-mumbai-theme");if(t!=="light"&&t!=="dark")t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}})();</script>
-  <script src="/assets/site.js?v=20260725h" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/hero-task.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/navigation.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/gallery.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/horizontal-rail.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/directory-filter.js?v=20260726b" defer></script>
+  <script src="/assets/site.js?v=20260726b" defer></script>
   <title>People — MIT Mumbai</title>
 </head>
 <body>
@@ -20,17 +26,33 @@
         <img class="brand-mark" src="/assets/media/mit-mumbai-logo.png" alt="" width="44" height="44">
         <span class="brand-text">MIT Mumbai</span>
       </a>
-      <nav class="site-nav" aria-label="Primary"><a href="/academics/">Academics</a><a href="/admissions/">Admissions</a><a href="/research/">Research</a><a href="/people/" aria-current="page">People</a><a href="/campus/">Campus</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+      <button class="uwp-nav-toggle" type="button" data-uwp-nav-toggle
+        aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span aria-hidden="true"></span>
+      </button>
+      <nav class="uwp-nav site-nav" id="primary-nav" aria-label="Primary" data-uwp-nav><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/academics/">Academics</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Academics submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/academics/">All programmes</a><div class="uwp-nav-branch"><span>Engineering</span><div class="uwp-nav-flyout"><a href="/academics/computer-science-and-engineering/">Computer Science and Engineering</a><a href="/academics/computer-science-and-engineering-ai-ml/">CSE (AI &amp; Machine Learning)</a><a href="/academics/information-technology/">Information Technology</a><a href="/academics/electronics-and-communication-engineering/">Electronics and Communication</a></div></div><div class="uwp-nav-branch"><span>Management</span><div class="uwp-nav-flyout"><a href="/academics/bachelor-of-management-studies/">Bachelor of Management Studies</a><a href="/academics/master-of-management-studies/">Master of Management Studies</a></div></div><a href="/academics/calendar/">Calendar and regulations</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/admissions/">Admissions</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/research/">Research</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/people/" aria-current="page">People</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="People submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/people/">Faculty directory</a><a href="/about/leadership/">Leadership</a><a href="/about/governance/">Governance</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/campus/">Campus</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Campus submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/campus/">Campus and facilities</a><a href="/campus/library/">Central Library</a><a href="/campus/student-life/">Student life</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/about/">About</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="About submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/about/">Vision and mission</a><a href="/about/founder/">Founder</a><a href="/about/legacy/">MAEER legacy and the MIT dome</a><a href="/about/quality/">Quality and compliance</a><a href="/about/committees/">Statutory committees</a><a href="/about/partnerships/">Industry partnerships</a><a href="/careers/">Work at MIT Mumbai</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/contact/">Contact</a></div></nav>
       <button class="theme-toggle" type="button" data-theme-toggle
         aria-label="Switch colour theme" aria-pressed="false"></button>
     </div>
   </header>
+  <div class="notice-bar"><div class="notice-inner"><span class="notice-label">Notices</span><ul class="notice-list" aria-label="Institute notices"><li>Admissions open for 2025–26</li><li>First-year induction programme concluded</li><li>TechSphere 2025 project exhibition held on 17 November</li><li>AICTE feedback facility open for students and faculty</li></ul></div></div>
   <main id="main" class="shell">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">MIT Mumbai</a> <span aria-hidden="true">/</span> <span aria-current="page">People</span></nav>
     <h1>People</h1>
     <p class="lede">13 faculty across engineering, management and the basic sciences.</p>
-    <div class="person-grid">
-      <article class="person-card">
+    <form class="uwp-directory-controls directory-controls" role="search"
+      data-uwp-component="directory-controls" data-uwp-filter-form
+      data-uwp-filter-target="faculty-directory">
+      <label class="field">
+        <span>Search faculty</span>
+        <input type="search" name="q" placeholder="Name, department or degree" autocomplete="off">
+      </label>
+      <button type="reset">Clear</button>
+      <p class="uwp-meta" aria-live="polite" data-uwp-filter-status></p>
+    </form>
+    <div class="person-grid" id="faculty-directory">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="dr. yogita deepak mane associate professor, computer engineering phd, computer engineering, university of mumbai">
         <img class="person-photo" src="/assets/media/faculty-yogita.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/yogita-deepak-mane/">Dr. Yogita Deepak Mane</a></h3>
@@ -38,7 +60,8 @@
           <p class="person-detail">PhD, Computer Engineering, University of Mumbai</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="dr. chetan k. patil associate professor, mechanical engineering phd, noise, vibration and harshness, mit-wpu pune">
         <img class="person-photo" src="/assets/media/faculty-chetan_patil.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/chetan-k-patil/">Dr. Chetan K. Patil</a></h3>
@@ -46,7 +69,8 @@
           <p class="person-detail">PhD, Noise, Vibration and Harshness, MIT-WPU Pune</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="dr. debajyoti de assistant professor, applied physics phd, soft condensed matter and biophysics, iit kharagpur">
         <img class="person-photo" src="/assets/media/faculty-DebajyotiDe.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/debabrata-nandi/">Dr. Debajyoti De</a></h3>
@@ -54,7 +78,8 @@
           <p class="person-detail">PhD, Soft Condensed Matter and Biophysics, IIT Kharagpur</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="dr. debabrata nandi assistant professor, chemistry phd, chemistry, calcutta university">
         <img class="person-photo" src="/assets/media/faculty-DNandi.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/debabrata-nandi/">Dr. Debabrata Nandi</a></h3>
@@ -62,7 +87,8 @@
           <p class="person-detail">PhD, Chemistry, Calcutta University</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="dr. satyaki biswas assistant professor, basic electrical and electronics engineering phd, engineering (power systems)">
         <img class="person-photo" src="/assets/media/faculty-Dr.SatyakiBiswas.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/satyaki-biswas/">Dr. Satyaki Biswas</a></h3>
@@ -70,7 +96,8 @@
           <p class="person-detail">PhD, Engineering (Power Systems)</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="dr. jayesh savaliya assistant professor, applied mathematics phd, fixed point theory, nit surat">
         <img class="person-photo" src="/assets/media/faculty-jayesh.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/jayesh-savaliya/">Dr. Jayesh Savaliya</a></h3>
@@ -78,7 +105,8 @@
           <p class="person-detail">PhD, Fixed Point Theory, NIT Surat</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="dr. himanshi gupta assistant professor, mechanical engineering phd, ic engines and alternative fuels, mnnit allahabad">
         <img class="person-photo" src="/assets/media/faculty-himanshi1.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/himanshi-gupta/">Dr. Himanshi Gupta</a></h3>
@@ -86,7 +114,8 @@
           <p class="person-detail">PhD, IC Engines and Alternative Fuels, MNNIT Allahabad</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="dr. abhijeet ghogare assistant professor, mechanical engineering phd, computational fluid dynamics">
         <img class="person-photo" src="/assets/media/faculty-abhijeet_pic.jpeg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/abhijeet-ghogare/">Dr. Abhijeet Ghogare</a></h3>
@@ -94,7 +123,8 @@
           <p class="person-detail">PhD, Computational Fluid Dynamics</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="mr. jayarajesh vattam assistant professor, electronics engineering phd in progress — harmonic mitigation using multilevel inverters">
         <img class="person-photo" src="/assets/media/faculty-jayarajesh.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/jayarajesh-vattam/">Mr. Jayarajesh Vattam</a></h3>
@@ -102,7 +132,8 @@
           <p class="person-detail">PhD in progress — harmonic mitigation using multilevel inverters</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="mr. sudhanwa m. kulkarni assistant professor, mechanical engineering phd submitted, bits pilani k. k. birla goa campus">
         <img class="person-photo" src="/assets/media/faculty-SudhanwaKulkarni.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/sudhanwa-m-kulkarni/">Mr. Sudhanwa M. Kulkarni</a></h3>
@@ -110,7 +141,8 @@
           <p class="person-detail">PhD submitted, BITS Pilani K. K. Birla Goa Campus</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="ms. khushi gupta assistant professor, english ma english, ignou; pg diploma in translation">
         <img class="person-photo" src="/assets/media/faculty-khushigupta.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/himanshi-gupta/">Ms. Khushi Gupta</a></h3>
@@ -118,7 +150,8 @@
           <p class="person-detail">MA English, IGNOU; PG Diploma in Translation</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="prof. mayuri meshram assistant professor, first year engineering department of first year engineering">
         <img class="person-photo" src="/assets/media/faculty-mayuri-meshram.jpeg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3>Prof. Mayuri Meshram</h3>
@@ -126,7 +159,8 @@
           <p class="person-detail">Department of First Year Engineering</p>
         </div>
       </article>
-      <article class="person-card">
+      <article class="person-card" data-uwp-filter-item
+        data-filter-text="mr. akshay sudam karad workshop superintendent department of first year engineering">
         <img class="person-photo" src="/assets/media/faculty-akshaykarad.jpg" alt="" width="220" height="220" loading="lazy">
         <div class="person-body">
           <h3><a href="/people/akshay-sudam-karad/">Mr. Akshay Sudam Karad</a></h3>

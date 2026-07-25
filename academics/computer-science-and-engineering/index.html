@@ -6,10 +6,16 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Computer Science and Engineering at MIT Mumbai — B.E., 4 years, 60 sanctioned seats, affiliated to the University of Mumbai.">
   <link rel="canonical" href="https://mitmumbai-demo.vishwanathgrid.org/academics/computer-science-and-engineering/">
-  <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/tokens.css?v=20260725h">
-  <link rel="stylesheet" href="/assets/site.css?v=20260725h">
+  <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/tokens.css?v=20260726b">
+  <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/media.css?v=20260726b">
+  <link rel="stylesheet" href="/assets/site.css?v=20260726b">
   <script>(function(){try{var t=localStorage.getItem("mit-mumbai-theme");if(t!=="light"&&t!=="dark")t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}})();</script>
-  <script src="/assets/site.js?v=20260725h" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/hero-task.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/navigation.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/gallery.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/horizontal-rail.js?v=20260726b" defer></script>
+  <script src="/vendor/university-web-patterns/src/js/directory-filter.js?v=20260726b" defer></script>
+  <script src="/assets/site.js?v=20260726b" defer></script>
   <title>Computer Science and Engineering — MIT Mumbai</title>
 </head>
 <body>
@@ -20,11 +26,16 @@
         <img class="brand-mark" src="/assets/media/mit-mumbai-logo.png" alt="" width="44" height="44">
         <span class="brand-text">MIT Mumbai</span>
       </a>
-      <nav class="site-nav" aria-label="Primary"><a href="/academics/" aria-current="page">Academics</a><a href="/admissions/">Admissions</a><a href="/research/">Research</a><a href="/people/">People</a><a href="/campus/">Campus</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+      <button class="uwp-nav-toggle" type="button" data-uwp-nav-toggle
+        aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span aria-hidden="true"></span>
+      </button>
+      <nav class="uwp-nav site-nav" id="primary-nav" aria-label="Primary" data-uwp-nav><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/academics/" aria-current="page">Academics</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Academics submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/academics/">All programmes</a><div class="uwp-nav-branch"><span>Engineering</span><div class="uwp-nav-flyout"><a href="/academics/computer-science-and-engineering/">Computer Science and Engineering</a><a href="/academics/computer-science-and-engineering-ai-ml/">CSE (AI &amp; Machine Learning)</a><a href="/academics/information-technology/">Information Technology</a><a href="/academics/electronics-and-communication-engineering/">Electronics and Communication</a></div></div><div class="uwp-nav-branch"><span>Management</span><div class="uwp-nav-flyout"><a href="/academics/bachelor-of-management-studies/">Bachelor of Management Studies</a><a href="/academics/master-of-management-studies/">Master of Management Studies</a></div></div><a href="/academics/calendar/">Calendar and regulations</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/admissions/">Admissions</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/research/">Research</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/people/">People</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="People submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/people/">Faculty directory</a><a href="/about/leadership/">Leadership</a><a href="/about/governance/">Governance</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/campus/">Campus</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Campus submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/campus/">Campus and facilities</a><a href="/campus/library/">Central Library</a><a href="/campus/student-life/">Student life</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/about/">About</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="About submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/about/">Vision and mission</a><a href="/about/founder/">Founder</a><a href="/about/legacy/">MAEER legacy and the MIT dome</a><a href="/about/quality/">Quality and compliance</a><a href="/about/committees/">Statutory committees</a><a href="/about/partnerships/">Industry partnerships</a><a href="/careers/">Work at MIT Mumbai</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/contact/">Contact</a></div></nav>
       <button class="theme-toggle" type="button" data-theme-toggle
         aria-label="Switch colour theme" aria-pressed="false"></button>
     </div>
   </header>
+  <div class="notice-bar"><div class="notice-inner"><span class="notice-label">Notices</span><ul class="notice-list" aria-label="Institute notices"><li>Admissions open for 2025–26</li><li>First-year induction programme concluded</li><li>TechSphere 2025 project exhibition held on 17 November</li><li>AICTE feedback facility open for students and faculty</li></ul></div></div>
   <main id="main" class="shell">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">MIT Mumbai</a> <span aria-hidden="true">/</span> <span aria-current="page">Computer Science and Engineering</span></nav>
     <figure class="page-media">

@@ -621,3 +621,222 @@ ol.tick-list li { padding-left: 1.7rem; }
   .profile-head { grid-template-columns: 1fr; }
   .profile-photo { width: 7rem; height: 7rem; }
 }
+
+/* ── notice ticker ──────────────────────────────────────────────────────
+   The live site scrolls its notices. Scrolling text is hard to read and
+   impossible to pause, so these sit still and wrap; the point is that the
+   institute's announcements are visible on every page. */
+.notice-bar {
+  background: var(--pale-blue);
+  border-bottom: 1px solid var(--line);
+  font-size: .84rem;
+}
+.notice-inner {
+  display: flex;
+  align-items: baseline;
+  gap: .75rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: .5rem 1.25rem;
+}
+.notice-label {
+  flex: 0 0 auto;
+  font-weight: 800;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--mm-crimson);
+}
+.notice-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+}
+.notice-list li { position: relative; }
+.notice-list li + li::before {
+  content: "";
+  position: absolute;
+  left: -.75rem;
+  top: .55em;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--mm-saffron);
+}
+
+/* ── cascading navigation ───────────────────────────────────────────────
+   Structure and behaviour come from the shared package (navigation.js);
+   these rules only give it the MIT Mumbai palette and spacing. */
+.uwp-nav { display: flex; align-items: center; }
+.uwp-nav-item { position: relative; }
+.uwp-nav-item__link {
+  display: inline-block;
+  padding: .35rem 0;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.uwp-nav-item__link:hover { border-bottom-color: var(--mm-crimson); }
+.uwp-nav-item__link[aria-current="page"] {
+  border-bottom-color: var(--mm-crimson);
+  font-weight: 600;
+}
+.uwp-nav-item__disclosure {
+  border: 0;
+  background: none;
+  padding: 0 0 0 .18rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+.uwp-nav-item__disclosure span::before { content: "▾"; font-size: .7rem; }
+.uwp-nav-menu {
+  position: absolute;
+  top: calc(100% + .55rem);
+  left: 0;
+  z-index: 20;
+  display: none;
+  min-width: 16rem;
+  padding: .45rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--mm-crimson);
+  border-radius: .5rem;
+  box-shadow: 0 24px 50px rgb(20 20 30 / .16);
+}
+.uwp-nav-item:hover > .uwp-nav-menu,
+.uwp-nav-item:focus-within > .uwp-nav-menu,
+.uwp-nav-item__disclosure[aria-expanded="true"] + .uwp-nav-menu { display: block; }
+.uwp-nav-menu a, .uwp-nav-branch > span {
+  display: block;
+  padding: .42rem .6rem;
+  border-radius: .3rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: .88rem;
+  white-space: nowrap;
+}
+.uwp-nav-menu a:hover { background: var(--pale); color: var(--mm-crimson); }
+.uwp-nav-branch { position: relative; }
+.uwp-nav-branch > span {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.uwp-nav-flyout { padding-left: .35rem; }
+.uwp-nav-toggle { display: none; }
+
+/* ── gallery + lightbox ─────────────────────────────────────────────── */
+.uwp-gallery { margin: 0 0 2.5rem; }
+.uwp-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: .7rem;
+}
+.uwp-gallery__item {
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: .55rem;
+  overflow: hidden;
+  background: none;
+  cursor: zoom-in;
+}
+.uwp-gallery__item img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.uwp-gallery__item:hover { border-color: var(--mm-crimson); }
+.uwp-lightbox {
+  max-width: min(92vw, 60rem);
+  border: 0;
+  border-radius: .7rem;
+  padding: 1rem;
+  background: var(--surface);
+  color: var(--ink);
+}
+.uwp-lightbox::backdrop { background: rgb(12 8 10 / .78); }
+.uwp-lightbox img { width: 100%; height: auto; border-radius: .4rem; }
+.uwp-lightbox [data-uwp-lightbox-close] {
+  float: right;
+  border: 0;
+  background: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--muted);
+}
+.uwp-lightbox p { margin: .6rem 0 0; font-size: .88rem; color: var(--muted); }
+
+/* ── horizontal rail ───────────────────────────────────────────────── */
+.uwp-rail-shell { position: relative; display: flex; align-items: center; gap: .5rem; }
+.uwp-rail {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: .3rem .2rem 1rem;
+  scrollbar-width: thin;
+}
+.uwp-rail > * { flex: 0 0 min(20rem, 80vw); scroll-snap-align: start; }
+.uwp-rail-button {
+  flex: 0 0 auto;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--mm-crimson);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.uwp-rail-button:hover { border-color: var(--mm-crimson); background: var(--pale); }
+.event-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  overflow: hidden;
+}
+.event-card img { width: 100%; aspect-ratio: 5 / 3; object-fit: cover; display: block; }
+.event-body { padding: .9rem 1.1rem 1.2rem; }
+.event-body h3 { font-size: 1rem; }
+.uwp-meta { font-size: .78rem; color: var(--mm-blue); font-weight: 700; margin: 0 0 .3rem; }
+
+/* ── directory controls ─────────────────────────────────────────────── */
+.directory-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: .7rem;
+  margin: 0 0 1.6rem;
+  padding: 1rem 1.1rem;
+  background: var(--pale-blue);
+  border-radius: .6rem;
+}
+.directory-controls .field { display: grid; gap: .3rem; flex: 1 1 18rem; }
+.directory-controls .field span { font-size: .76rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.directory-controls input[type="search"] {
+  padding: .55rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: .4rem;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+.directory-controls button[type="reset"] {
+  padding: .55rem 1rem;
+  border: 1px solid var(--mm-blue);
+  border-radius: .4rem;
+  background: transparent;
+  color: var(--mm-blue);
+  font: inherit;
+  cursor: pointer;
+}
+.directory-controls [data-uwp-filter-status] { flex: 1 0 100%; margin: 0; font-size: .84rem; }
+
+@media (max-width: 52rem) {
+  .uwp-nav-menu { position: static; display: block; box-shadow: none; border: 0; border-left: 2px solid var(--line); border-radius: 0; min-width: 0; padding: .1rem 0 .3rem .6rem; }
+  .uwp-nav-item { width: 100%; }
+}
