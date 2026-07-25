@@ -775,10 +775,50 @@ ol.tick-list li { padding-left: 1.7rem; }
 .directory-controls [data-uwp-filter-status] { flex: 1 0 100%; margin: 0; font-size: .84rem; }
 
 @media (max-width: 52rem) {
-  .uwp-nav-menu { position: static; display: block; box-shadow: none; border: 0; border-left: 2px solid var(--line); border-radius: 0; min-width: 0; padding: .1rem 0 .3rem .6rem; }
+  /* Below this width the masthead collapses behind the disclosure button.
+     Submenus stay closed until their own disclosure is pressed — the previous
+     rule opened all of them at once, which buried the page. */
+  .uwp-nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 1px solid rgb(255 255 255 / .45);
+    border-radius: .35rem;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+  .uwp-nav-toggle span::before { content: "\2261"; font-size: 1.25rem; line-height: 1; }
 
-  .uwp-nav-item { width: 100%; }
+  .primary-nav { display: none; width: 100%; }
+  .uwp-nav-toggle[aria-expanded="true"] ~ .primary-nav { display: block; }
 
+  .header-inner { flex-wrap: wrap; gap: .6rem; }
+  .header-actions { flex-wrap: wrap; }
+
+  .primary-nav .uwp-nav-item { display: block; width: 100%; }
+  .primary-nav .uwp-nav-item__link { height: auto; padding: .55rem 0; }
+
+  .uwp-nav-menu {
+    position: static;
+    display: none;
+    min-width: 0;
+    padding: .1rem 0 .3rem .7rem;
+    border: 0;
+    border-left: 2px solid rgb(255 255 255 / .3);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .uwp-nav-item__disclosure[aria-expanded="true"] + .uwp-nav-menu { display: block; }
+  /* Hover must not open anything on a touch screen. */
+  .uwp-nav-item:hover > .uwp-nav-menu { display: none; }
+  .uwp-nav-item__disclosure[aria-expanded="true"] + .uwp-nav-menu { display: block; }
+  .uwp-nav-menu a { color: #fff; }
+  .uwp-nav-menu a:hover { background: rgb(255 255 255 / .12); color: #fff; }
+  .uwp-nav-branch > span { color: rgb(255 255 255 / .65); }
 }
 
 
@@ -819,3 +859,26 @@ ol.tick-list li { padding-left: 1.7rem; }
 
 /* The notice bar sits under a sticky masthead, so it must not be sticky too. */
 .notice-bar { position: relative; z-index: 5; }
+
+/* ── narrow-viewport containment ────────────────────────────────────────
+   A `1fr` grid track is `minmax(auto, 1fr)`, and `auto` refuses to shrink
+   below its content's max-content width. The programme <select> carries
+   option text like "Computer Science and Engineering (Artificial Intelligence
+   & Machine Learning)", which pushed the hero column to 660px inside a 375px
+   screen. Every track that holds free text or a control gets an explicit zero
+   minimum, and the control itself is allowed to shrink. */
+
+.hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
+.hero-copy, .hero-media { min-width: 0; }
+
+select, input, textarea, button { max-width: 100%; }
+select { text-overflow: ellipsis; }
+
+@media (max-width: 54rem) {
+  .hero { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 34rem) {
+  .uwp-hero-task__row { flex-wrap: wrap; }
+  .uwp-hero-task__row > * { flex: 1 1 100%; }
+}
