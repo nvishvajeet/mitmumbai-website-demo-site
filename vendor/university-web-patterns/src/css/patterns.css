@@ -1,0 +1,659 @@
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.uwp-wrap {
+  width: min(calc(100% - 2rem), var(--uwp-content-width));
+  margin-inline: auto;
+}
+
+.uwp-masthead {
+  color: var(--uwp-brand-contrast);
+  background: var(--uwp-brand);
+  border-bottom: 3px solid var(--uwp-accent);
+}
+
+.uwp-masthead__inner,
+.uwp-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--uwp-space-3);
+  min-height: 5.5rem;
+}
+
+.uwp-masthead__inner > a {
+  color: inherit;
+  font-family: var(--uwp-serif);
+  font-size: clamp(1.2rem, 1rem + .6vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-decoration: none;
+}
+
+.uwp-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(.75rem, 1.6vw, var(--uwp-space-3));
+}
+
+.uwp-nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: inherit;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.uwp-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: .3rem;
+  left: 0;
+  height: 2px;
+  background: var(--uwp-accent);
+  content: "";
+  opacity: 0;
+  transform: scaleX(.35);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.uwp-nav a:hover::after,
+.uwp-nav a:focus-visible::after,
+.uwp-nav a[aria-current="page"]::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.uwp-nav-toggle {
+  display: none;
+  width: 44px;
+  padding: .6rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: .25rem;
+}
+
+.uwp-nav-toggle span,
+.uwp-nav-toggle span::before,
+.uwp-nav-toggle span::after {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  content: "";
+}
+
+.uwp-nav-toggle span {
+  position: relative;
+}
+
+.uwp-nav-toggle span::before {
+  position: absolute;
+  top: -.45rem;
+}
+
+.uwp-nav-toggle span::after {
+  position: absolute;
+  top: .45rem;
+}
+
+/* Dropdown mega-menu. A top-level nav entry may be a `.uwp-nav-item` carrying a
+   `.uwp-nav-menu` of sub-links, revealed on hover/focus (precise pointers) or
+   via its disclosure button (touch + keyboard). Data-free: the client supplies
+   items per navigation.schema.json. */
+.uwp-nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.uwp-nav-item__disclosure {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  min-height: 44px;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.uwp-nav-item__disclosure span {
+  display: block;
+  width: .4rem;
+  height: .4rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-1px) rotate(45deg);
+  transition: transform 150ms ease;
+  content: "";
+}
+
+.uwp-nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 50;
+  display: none;
+  flex-direction: column;
+  min-width: 15rem;
+  padding: .4rem 0;
+  background: var(--uwp-surface);
+  border: 1px solid color-mix(in srgb, var(--uwp-ink) 16%, transparent);
+  border-top: 3px solid var(--uwp-accent);
+  border-radius: 0 0 .25rem .25rem;
+  box-shadow: 0 1.25rem 2.75rem rgb(0 0 0 / 22%);
+}
+
+.uwp-nav-item:hover > .uwp-nav-menu,
+.uwp-nav-item:focus-within > .uwp-nav-menu,
+.uwp-nav-item.is-open > .uwp-nav-menu {
+  display: flex;
+}
+
+/* With scripting, hover-intent (navigation.js) drives `.is-open`, so the raw
+   `:hover` opener is dropped: `.is-open` + `:focus-within` become the single
+   source of truth. That lets the hover-intent close-delay hold the panel open
+   while the pointer travels toward a nested fly-out, instead of snapping shut
+   the instant `:hover` is lost. The base `:hover` rule above stays as the
+   no-JS fallback. */
+.uwp-js .uwp-nav-item:hover > .uwp-nav-menu {
+  display: none;
+}
+
+.uwp-js .uwp-nav-item:focus-within > .uwp-nav-menu,
+.uwp-js .uwp-nav-item.is-open > .uwp-nav-menu {
+  display: flex;
+}
+
+.uwp-nav-item:hover .uwp-nav-item__disclosure span,
+.uwp-nav-item:focus-within .uwp-nav-item__disclosure span,
+.uwp-nav-item.is-open .uwp-nav-item__disclosure span {
+  transform: translateY(1px) rotate(225deg);
+}
+
+.uwp-nav-menu a {
+  min-height: 0;
+  padding: .55rem 1.15rem;
+  color: var(--uwp-ink);
+  font-weight: 550;
+  white-space: nowrap;
+}
+
+/* the underline-accent belongs to the top bar, not the panel rows */
+.uwp-nav-menu a::after {
+  content: none;
+}
+
+.uwp-nav-menu a:hover,
+.uwp-nav-menu a:focus-visible {
+  background: color-mix(in srgb, var(--uwp-ink) 7%, transparent);
+}
+
+/* Level-2 cascade fly-out. A row inside a `.uwp-nav-menu` may itself be a
+   `.uwp-nav-branch` carrying a `.uwp-nav-flyout` of sub-links, revealed in a
+   panel beside the row (two levels only, never deeper). With scripting the
+   reveal is driven solely by `.is-open` (hover-intent, navigation.js) plus
+   `:focus-within`, so travelling diagonally from the row to the panel never
+   snaps it shut; the base `:hover` opener is only the no-JS fallback. Row links
+   and fly-out links inherit their type from `.uwp-nav-menu a`. Data-free: the
+   client supplies rows per navigation-cascade.schema.json. */
+.uwp-nav-branch {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.uwp-nav-branch__link {
+  flex: 1 1 auto;
+}
+
+.uwp-nav-branch__disclosure {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  min-height: 44px;
+  padding: 0;
+  color: var(--uwp-muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.uwp-nav-branch__disclosure span {
+  display: block;
+  width: .4rem;
+  height: .4rem;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 150ms ease;
+  content: "";
+}
+
+.uwp-nav-branch.is-open > .uwp-nav-branch__disclosure span,
+.uwp-nav-branch:focus-within > .uwp-nav-branch__disclosure span {
+  transform: rotate(135deg);
+}
+
+.uwp-nav-branch:hover > .uwp-nav-branch__link,
+.uwp-nav-branch:focus-within > .uwp-nav-branch__link,
+.uwp-nav-branch.is-open > .uwp-nav-branch__link {
+  background: color-mix(in srgb, var(--uwp-ink) 7%, transparent);
+}
+
+.uwp-nav-flyout {
+  position: absolute;
+  top: -.7rem;
+  left: 100%;
+  z-index: 60;
+  display: none;
+  flex-direction: column;
+  min-width: 16rem;
+  padding: .4rem 0;
+  background: var(--uwp-surface);
+  border: 1px solid color-mix(in srgb, var(--uwp-ink) 16%, transparent);
+  border-top: 3px solid var(--uwp-accent);
+  border-radius: 0 .25rem .25rem .25rem;
+  box-shadow: 0 1.25rem 2.75rem rgb(0 0 0 / 22%);
+}
+
+/* Edge variant: near the right viewport edge navigation.js measures the panel
+   and flips it to open to the left of the row instead. */
+.uwp-nav-flyout--left {
+  right: 100%;
+  left: auto;
+  border-radius: .25rem 0 .25rem .25rem;
+}
+
+.uwp-nav-branch:hover > .uwp-nav-flyout,
+.uwp-nav-branch:focus-within > .uwp-nav-flyout,
+.uwp-nav-branch.is-open > .uwp-nav-flyout {
+  display: flex;
+}
+
+.uwp-js .uwp-nav-branch:hover > .uwp-nav-flyout {
+  display: none;
+}
+
+.uwp-js .uwp-nav-branch:focus-within > .uwp-nav-flyout,
+.uwp-js .uwp-nav-branch.is-open > .uwp-nav-flyout {
+  display: flex;
+}
+
+.uwp-nav-flyout .uwp-nav-flyout__all {
+  margin-top: .3rem;
+  border-top: 1px solid var(--uwp-rule);
+  color: var(--uwp-brand);
+  font-weight: 700;
+}
+
+.uwp-breadcrumbs {
+  width: min(calc(100% - 2rem), var(--uwp-content-width));
+  margin: var(--uwp-space-2) auto 0;
+}
+
+.uwp-breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem .65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.uwp-breadcrumbs li:not(:last-child)::after {
+  margin-left: .65rem;
+  color: var(--uwp-muted);
+  content: "/";
+}
+
+.uwp-breadcrumbs a {
+  color: inherit;
+  text-decoration-thickness: .08em;
+  text-underline-offset: .18em;
+}
+
+.uwp-hero {
+  padding-block: clamp(2.5rem, 7vw, 6rem);
+  border-bottom: 1px solid var(--uwp-rule);
+}
+
+.uwp-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, .9fr);
+  gap: clamp(var(--uwp-space-4), 6vw, 5rem);
+  align-items: center;
+}
+
+.uwp-hero__copy > :first-child {
+  margin-top: 0;
+}
+
+.uwp-hero h1 {
+  max-width: 16ch;
+  margin-block: .25em;
+  font-size: clamp(2.25rem, 1.5rem + 3vw, 5rem);
+}
+
+.uwp-hero img,
+.uwp-card img,
+.uwp-profile img,
+.uwp-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.uwp-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--uwp-space-3);
+  margin-block: var(--uwp-space-6) var(--uwp-space-3);
+  border-bottom: 1px solid var(--uwp-rule);
+}
+
+.uwp-section-heading h2 {
+  margin-block: .25rem .75rem;
+}
+
+.uwp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--uwp-space-3);
+}
+
+.uwp-card {
+  padding: var(--uwp-space-3);
+  background: var(--uwp-surface);
+  border: 1px solid var(--uwp-rule);
+  border-top: 4px solid var(--uwp-brand);
+}
+
+.uwp-card > :first-child {
+  margin-top: 0;
+}
+
+.uwp-card > :last-child {
+  margin-bottom: 0;
+}
+
+.uwp-card a {
+  color: inherit;
+  text-decoration-color: transparent;
+  text-underline-offset: .18em;
+  transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+
+.uwp-card a:hover,
+.uwp-card a:focus-visible {
+  color: var(--uwp-brand);
+  text-decoration-color: currentColor;
+}
+
+.uwp-rail-shell {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  gap: var(--uwp-space-1);
+  align-items: center;
+}
+
+.uwp-rail {
+  display: grid;
+  grid-auto-columns: min(22rem, 84vw);
+  grid-auto-flow: column;
+  gap: var(--uwp-space-3);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+}
+
+.uwp-rail > * {
+  scroll-snap-align: start;
+}
+
+.uwp-rail-button,
+.uwp-theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--uwp-rule);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.uwp-profile {
+  width: min(calc(100% - 2rem), 62rem);
+  margin-inline: auto;
+}
+
+.uwp-profile__header {
+  display: grid;
+  grid-template-columns: minmax(12rem, 18rem) minmax(0, 1fr);
+  gap: clamp(var(--uwp-space-3), 5vw, var(--uwp-space-6));
+  align-items: center;
+  margin-block: var(--uwp-space-6);
+}
+
+.uwp-profile__header img {
+  aspect-ratio: 4 / 5;
+}
+
+.uwp-directory-controls,
+.uwp-form {
+  display: grid;
+  gap: var(--uwp-space-2);
+  padding: var(--uwp-space-3);
+  background: var(--uwp-surface);
+  border: 1px solid var(--uwp-rule);
+}
+
+.uwp-directory-controls {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  align-items: end;
+}
+
+.uwp-form__fields {
+  display: grid;
+  gap: var(--uwp-space-2);
+}
+
+.uwp-form :where(input, select, textarea),
+.uwp-directory-controls :where(input, select) {
+  width: 100%;
+  padding: .65rem .75rem;
+  color: var(--uwp-ink);
+  background: var(--uwp-paper);
+  border: 1px solid var(--uwp-rule);
+  border-radius: .2rem;
+}
+
+.uwp-notice {
+  padding: var(--uwp-space-3);
+  background: color-mix(in srgb, var(--uwp-accent) 10%, var(--uwp-surface));
+  border-inline-start: 4px solid var(--uwp-accent);
+}
+
+.uwp-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--uwp-space-2);
+}
+
+.uwp-gallery button {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: zoom-in;
+}
+
+.uwp-lightbox {
+  width: min(94vw, 76rem);
+  max-height: 92vh;
+  padding: var(--uwp-space-3);
+  color: var(--uwp-ink);
+  background: var(--uwp-paper);
+  border: 1px solid var(--uwp-rule);
+}
+
+.uwp-lightbox::backdrop {
+  background: rgb(0 0 0 / 72%);
+}
+
+.uwp-lightbox [data-uwp-lightbox-close] {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  width: 44px;
+  padding: 0;
+  color: inherit;
+  background: var(--uwp-surface);
+  border: 1px solid var(--uwp-rule);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.uwp-footer {
+  margin-top: var(--uwp-space-6);
+  color: var(--uwp-brand-contrast);
+  background: var(--uwp-brand);
+  border-top: 4px solid var(--uwp-accent);
+}
+
+@media (max-width: 56rem) {
+  .uwp-masthead__inner {
+    position: relative;
+    flex-wrap: wrap;
+    min-height: 4.75rem;
+  }
+
+  .uwp-js .uwp-nav-toggle {
+    display: inline-grid;
+  }
+
+  .uwp-js .uwp-masthead .uwp-nav {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    padding-bottom: var(--uwp-space-2);
+  }
+
+  .uwp-js .uwp-masthead .uwp-nav.is-open {
+    display: flex;
+  }
+
+  .uwp-masthead .uwp-nav a {
+    width: 100%;
+  }
+
+  /* Dropdowns collapse into an accordion inside the mobile panel. */
+  .uwp-js .uwp-masthead .uwp-nav-item {
+    display: block;
+    width: 100%;
+  }
+
+  .uwp-js .uwp-masthead .uwp-nav-menu {
+    position: static;
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .uwp-js .uwp-masthead .uwp-nav-item:hover > .uwp-nav-menu,
+  .uwp-js .uwp-masthead .uwp-nav-item:focus-within > .uwp-nav-menu {
+    display: none;
+  }
+
+  .uwp-js .uwp-masthead .uwp-nav-item.is-open > .uwp-nav-menu {
+    display: flex;
+  }
+
+  .uwp-masthead .uwp-nav-menu a {
+    width: 100%;
+    padding-left: 2rem;
+  }
+
+  /* Cascade fly-outs collapse into the accordion: no hover, tap the row's
+     disclosure to expand the sub-links inline as a deeper indent. */
+  .uwp-js .uwp-masthead .uwp-nav-branch {
+    display: block;
+    width: 100%;
+  }
+
+  .uwp-js .uwp-masthead .uwp-nav-flyout {
+    position: static;
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .uwp-js .uwp-masthead .uwp-nav-branch:hover > .uwp-nav-flyout,
+  .uwp-js .uwp-masthead .uwp-nav-branch:focus-within > .uwp-nav-flyout {
+    display: none;
+  }
+
+  .uwp-js .uwp-masthead .uwp-nav-branch.is-open > .uwp-nav-flyout {
+    display: flex;
+  }
+
+  .uwp-masthead .uwp-nav-flyout a {
+    width: 100%;
+    padding-left: 2.75rem;
+  }
+
+  .uwp-hero__grid,
+  .uwp-profile__header {
+    grid-template-columns: 1fr;
+  }
+
+  .uwp-hero__grid > :last-child {
+    order: -1;
+  }
+
+  .uwp-section-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .uwp-rail-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .uwp-rail-button {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uwp-nav a::after,
+  .uwp-card a,
+  .uwp-nav-item__disclosure span,
+  .uwp-nav-branch__disclosure span {
+    transition: none;
+  }
+}

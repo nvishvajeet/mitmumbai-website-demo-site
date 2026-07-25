@@ -1,0 +1,35 @@
+:root {
+  --uwp-ink: #172232;
+  --uwp-muted: #5a6675;
+  --uwp-paper: #fcfbf8;
+  --uwp-surface: #ffffff;
+  --uwp-brand: #173456;
+  --uwp-brand-contrast: #ffffff;
+  --uwp-accent: #d8a72c;
+  --uwp-rule: #d6dce2;
+  --uwp-focus: #b65c16;
+  --uwp-serif: Georgia, "Times New Roman", serif;
+  --uwp-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --uwp-content-width: 76rem;
+  --uwp-reading-width: 72ch;
+  --uwp-space-1: .5rem;
+  --uwp-space-2: 1rem;
+  --uwp-space-3: 1.5rem;
+  --uwp-space-4: 2rem;
+  --uwp-space-6: 3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --uwp-ink: #edf2f7;
+    --uwp-muted: #b6c1cc;
+    --uwp-paper: #0d1723;
+    --uwp-surface: #132131;
+    --uwp-brand: #90b6db;
+    --uwp-brand-contrast: #08111c;
+    --uwp-accent: #dbb55d;
+    --uwp-rule: #314256;
+    --uwp-focus: #ffb663;
+  }
+}
