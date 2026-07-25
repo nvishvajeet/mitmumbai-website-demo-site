@@ -220,10 +220,15 @@ p { max-width: var(--uwp-reading-width, 72ch); }
 .stat strong { display: block; font-size: 2rem; color: var(--mm-marine); line-height: 1.1; }
 .stat span { font-size: .86rem; color: var(--muted); }
 
-.card-grid, .person-grid {
+.card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 1.25rem;
+}
+.person-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  gap: 1.1rem;
 }
 .card, .person-card {
   padding: 1.35rem;
@@ -291,4 +296,82 @@ p { max-width: var(--uwp-reading-width, 72ch); }
 @media (max-width: 44rem) {
   .header-inner { flex-wrap: wrap; }
   .site-nav { width: 100%; margin-left: 0; }
+}
+
+/* ── media ──────────────────────────────────────────────────────────────
+   Every image here is the institute's own, resized and recompressed by
+   tools/optimise_media.py. The live site ships 128 MB of imagery; the whole
+   of this one is under 4 MB, so nothing is allowed to grow back. */
+
+.brand-mark {
+  width: 2.75rem;
+  height: 2.75rem;
+  object-fit: contain;
+  background: none;
+  border-radius: 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+.hero-media { margin: 0; }
+.hero-media img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: .8rem;
+  box-shadow: var(--shadow);
+}
+
+.page-media { margin: 0 0 1.75rem; }
+.page-media img {
+  width: 100%;
+  aspect-ratio: 21 / 8;
+  object-fit: cover;
+  border-radius: .7rem;
+}
+
+.media-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.card-media { width: 100%; aspect-ratio: 5 / 3; object-fit: cover; display: block; }
+.card-body { padding: 1.15rem 1.35rem 1.4rem; }
+
+.person-card { display: flex; gap: 1rem; align-items: flex-start; }
+.person-photo {
+  flex: 0 0 auto;
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 22%;
+  background: var(--pale);
+}
+.person-initials {
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--mm-marine);
+  letter-spacing: .03em;
+}
+.person-body { min-width: 0; }
+
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: .8rem;
+  margin: 0 0 2.5rem;
+}
+.photo-strip figure { margin: 0; }
+.photo-strip img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: .55rem;
+}
+
+@media (max-width: 54rem) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-media { order: -1; }
 }
