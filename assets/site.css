@@ -4,33 +4,46 @@
    MIT-WPU Pune and WPU Goa run cobalt/crimson; this campus takes a deep
    marine teal with the institute's own crimson as the accent. */
 
+/* MIT Mumbai concept site.
+   Structure comes from university-web-patterns; the palette is MIT Mumbai's
+   own. Their site runs crimson #c12841 with blue #30669f, so those are the
+   two primaries here — deepened where contrast demanded it, warmed with a
+   saffron accent. Distinct from MIT-WPU Pune (navy + gold) and WPU Goa
+   (cobalt + crimson) while staying recognisably in the group. */
+
 :root {
   color-scheme: light;
-  --mm-marine: #0e4d5a;
-  --mm-marine-deep: #093843;
-  --mm-crimson: #c12841;
-  --ink: #10202a;
-  --muted: #52646f;
-  --paper: #ffffff;
-  --pale: #f2f8f9;
+  --mm-crimson: #b31f38;
+  --mm-crimson-deep: #8c1428;
+  --mm-blue: #2b5f96;
+  --mm-blue-deep: #1b3f68;
+  --mm-saffron: #d68a1e;
+  --ink: #1b1c20;
+  --muted: #5d6470;
+  --paper: #fffdfc;
+  --pale: #fdf4f2;
+  --pale-blue: #eff4fa;
   --surface: #ffffff;
-  --line: #cfe0e3;
-  --shadow: 0 18px 60px rgb(14 77 90 / .10);
+  --line: #e6dcd9;
+  --shadow: 0 18px 48px rgb(140 20 40 / .09);
   --max: 76rem;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --mm-marine: #6fc0cf;
-  --mm-marine-deep: #a8dbe5;
-  --mm-crimson: #ff8fa0;
-  --ink: #eef6f8;
-  --muted: #a9bec6;
-  --paper: #071820;
-  --pale: #0a222c;
-  --surface: #0d2833;
-  --line: #23515e;
-  --shadow: 0 20px 60px rgb(0 0 0 / .35);
+  --mm-crimson: #ff8296;
+  --mm-crimson-deep: #ffa9b7;
+  --mm-blue: #8fb8e4;
+  --mm-blue-deep: #b9d3f0;
+  --mm-saffron: #efb35c;
+  --ink: #f3eeed;
+  --muted: #b3adb2;
+  --paper: #161214;
+  --pale: #241a1d;
+  --pale-blue: #17212e;
+  --surface: #1e181b;
+  --line: #3a2c30;
+  --shadow: 0 20px 55px rgb(0 0 0 / .45);
 }
 
 * { box-sizing: border-box; }
@@ -47,7 +60,7 @@ body {
 }
 
 img { max-width: 100%; height: auto; }
-a { color: var(--mm-marine); text-underline-offset: .2em; }
+a { color: var(--mm-crimson); text-underline-offset: .2em; }
 a:hover { color: var(--mm-crimson); }
 a:focus-visible, button:focus-visible {
   outline: 3px solid var(--mm-crimson);
@@ -59,7 +72,7 @@ a:focus-visible, button:focus-visible {
   position: absolute;
   left: -999px;
   padding: .6rem 1rem;
-  background: var(--mm-marine);
+  background: var(--mm-crimson);
   color: #fff;
   z-index: 20;
 }
@@ -105,7 +118,7 @@ a:focus-visible, button:focus-visible {
   width: 2.4rem;
   height: 2.4rem;
   border-radius: .5rem;
-  background: var(--mm-marine);
+  background: var(--mm-crimson);
   color: #fff;
   font-size: .82rem;
   letter-spacing: .04em;
@@ -127,7 +140,7 @@ a:focus-visible, button:focus-visible {
 }
 .site-nav a:hover { border-bottom-color: var(--mm-crimson); }
 .site-nav a[aria-current="page"] {
-  border-bottom-color: var(--mm-marine);
+  border-bottom-color: var(--mm-crimson);
   font-weight: 600;
 }
 
@@ -139,7 +152,7 @@ a:focus-visible, button:focus-visible {
   background: var(--pale);
   cursor: pointer;
 }
-.theme-toggle::before { content: "◐"; color: var(--mm-marine); }
+.theme-toggle::before { content: "◐"; color: var(--mm-crimson); }
 
 .shell {
   max-width: var(--max);
@@ -189,19 +202,19 @@ p { max-width: var(--uwp-reading-width, 72ch); }
   display: inline-block;
   padding: .65rem 1.3rem;
   border-radius: .4rem;
-  background: var(--mm-marine);
+  background: var(--mm-crimson);
   color: #fff;
   text-decoration: none;
   font-weight: 600;
 }
-.button:hover { background: var(--mm-marine-deep); color: #fff; }
+.button:hover { background: var(--mm-blue-deep); color: #fff; }
 .button.secondary {
   background: transparent;
-  color: var(--mm-marine);
-  border: 1px solid var(--mm-marine);
+  color: var(--mm-crimson);
+  border: 1px solid var(--mm-crimson);
 }
 :root[data-theme="dark"] .button { color: #06222b; }
-:root[data-theme="dark"] .button.secondary { color: var(--mm-marine); }
+:root[data-theme="dark"] .button.secondary { color: var(--mm-crimson); }
 
 .section { margin: 0 0 3rem; }
 .section-heading { margin-bottom: 1.5rem; }
@@ -217,7 +230,7 @@ p { max-width: var(--uwp-reading-width, 72ch); }
   border-radius: .6rem;
   text-align: center;
 }
-.stat strong { display: block; font-size: 2rem; color: var(--mm-marine); line-height: 1.1; }
+.stat strong { display: block; font-size: 2rem; color: var(--mm-crimson); line-height: 1.1; }
 .stat span { font-size: .86rem; color: var(--muted); }
 
 .card-grid {
@@ -265,10 +278,10 @@ p { max-width: var(--uwp-reading-width, 72ch); }
 .data-table th, .data-table td { padding: .7rem .8rem; border-bottom: 1px solid var(--line); text-align: left; }
 .data-table thead th { background: var(--pale); font-size: .85rem; }
 .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
-.data-table tfoot th, .data-table tfoot td { font-weight: 700; border-top: 2px solid var(--mm-marine); }
+.data-table tfoot th, .data-table tfoot td { font-weight: 700; border-top: 2px solid var(--mm-crimson); }
 
 .site-footer {
-  background: var(--mm-marine-deep);
+  background: var(--mm-blue-deep);
   color: #e8f4f6;
   padding: 2.5rem 1.25rem 1.5rem;
 }
@@ -352,7 +365,7 @@ p { max-width: var(--uwp-reading-width, 72ch); }
   display: grid;
   place-items: center;
   font-weight: 700;
-  color: var(--mm-marine);
+  color: var(--mm-crimson);
   letter-spacing: .03em;
 }
 .person-body { min-width: 0; }
@@ -374,4 +387,237 @@ p { max-width: var(--uwp-reading-width, 72ch); }
 @media (max-width: 54rem) {
   .hero { grid-template-columns: 1fr; }
   .hero-media { order: -1; }
+}
+
+/* ── polish ─────────────────────────────────────────────────────────────
+   Colour carries meaning here rather than decorating: crimson is the
+   institute's own and marks primary actions and section openings; blue
+   carries structure (tables, footer, quiet surfaces); saffron appears once
+   per page at most, on the rule beneath a section heading. */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgb(179 31 56 / .08);
+}
+.site-header::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, var(--mm-crimson) 0 38%, var(--mm-blue) 38% 78%, var(--mm-saffron) 78% 100%);
+}
+
+.brand-mark {
+  width: auto;
+  height: 2.5rem;
+  max-width: 9.5rem;
+  object-fit: contain;
+}
+.brand-text {
+  font-weight: 800;
+  letter-spacing: -.01em;
+  padding-left: .7rem;
+  margin-left: .1rem;
+  border-left: 1px solid var(--line);
+}
+
+.hero {
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 3vw, 2.25rem);
+  margin-bottom: 3rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background:
+    radial-gradient(120% 140% at 0% 0%, var(--pale) 0%, transparent 62%),
+    radial-gradient(110% 130% at 100% 100%, var(--pale-blue) 0%, transparent 58%),
+    var(--surface);
+}
+.hero h1 { letter-spacing: -.025em; }
+.hero .lede { color: var(--ink); opacity: .82; }
+
+.section-heading h2, .section > h2 {
+  position: relative;
+  padding-bottom: .55rem;
+}
+.section-heading h2::after, .section > h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--mm-saffron);
+}
+
+.stat {
+  background: linear-gradient(180deg, var(--pale) 0%, var(--surface) 100%);
+  border: 1px solid var(--line);
+}
+.stat strong { color: var(--mm-crimson); letter-spacing: -.02em; }
+
+.card, .person-card {
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card:hover, .person-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--mm-crimson);
+  box-shadow: 0 22px 46px rgb(140 20 40 / .13);
+}
+.card h3 a { color: var(--ink); }
+.card:hover h3 a { color: var(--mm-crimson); }
+
+.button {
+  background: var(--mm-crimson);
+  box-shadow: 0 8px 18px rgb(140 20 40 / .22);
+}
+.button:hover { background: var(--mm-crimson-deep); }
+.button.secondary {
+  color: var(--mm-blue);
+  border-color: var(--mm-blue);
+  box-shadow: none;
+}
+.button.secondary:hover { background: var(--pale-blue); color: var(--mm-blue-deep); }
+:root[data-theme="dark"] .button { color: #2a0a12; }
+
+.eyebrow { color: var(--mm-blue); }
+
+.fact-list > div {
+  background: var(--pale-blue);
+  border-left: 3px solid var(--mm-blue);
+  border-radius: 0 .5rem .5rem 0;
+}
+
+.data-table thead th { background: var(--pale-blue); color: var(--mm-blue-deep); }
+:root[data-theme="dark"] .data-table thead th { color: var(--mm-blue); }
+.data-table tbody tr:hover { background: var(--pale); }
+.data-table tfoot th, .data-table tfoot td { border-top-color: var(--mm-crimson); }
+
+.tick-list { list-style: none; padding-left: 0; }
+.tick-list li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+.tick-list li::before {
+  content: "";
+  position: absolute;
+  left: .25rem;
+  top: .62em;
+  width: .42rem;
+  height: .42rem;
+  border-radius: 50%;
+  background: var(--mm-crimson);
+}
+
+.person-photo { box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--mm-crimson); }
+.person-initials { box-shadow: none; border: 1px solid var(--line); }
+
+.site-footer {
+  background: var(--mm-blue-deep);
+  color: #e9eff7;
+  border-top: 3px solid var(--mm-crimson);
+}
+:root[data-theme="dark"] .site-footer { background: #12151b; }
+.footer-nav a, .site-footer a { color: #cfe0f2; }
+.footer-nav a:hover, .site-footer a:hover { color: #fff; }
+
+.photo-strip img { box-shadow: var(--shadow); }
+.breadcrumbs a:hover { color: var(--mm-crimson); }
+
+/* Header fit: the wordmark and seven nav items must share one row down to
+   tablet width, then stack cleanly rather than wrapping mid-list. */
+.header-inner { gap: .9rem; flex-wrap: nowrap; }
+.brand { flex: 0 0 auto; }
+.brand-text {
+  white-space: nowrap;
+  font-size: .98rem;
+}
+.site-nav {
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 0 clamp(.55rem, 1.4vw, 1.1rem);
+  font-size: clamp(.82rem, 1.05vw, .93rem);
+}
+.site-nav a { white-space: nowrap; }
+.theme-toggle { flex: 0 0 auto; }
+
+@media (max-width: 62rem) {
+  .brand-mark { max-width: 7rem; height: 2.1rem; }
+}
+@media (max-width: 52rem) {
+  .header-inner { flex-wrap: wrap; }
+  .site-nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: .2rem 1rem;
+    padding-top: .35rem;
+    border-top: 1px solid var(--line);
+  }
+  .brand-text { border-left: 0; padding-left: .5rem; }
+}
+
+/* Infographic cards reuse the institute's own prospectus artwork. They are
+   square-ish source images, so the grid keeps them uniform and lets the
+   caption carry the meaning for anyone who cannot see them. */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+.info-card {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  overflow: hidden;
+}
+.info-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+.info-card figcaption {
+  padding: .7rem .9rem .85rem;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--mm-blue-deep);
+  border-top: 2px solid var(--mm-saffron);
+}
+:root[data-theme="dark"] .info-card figcaption { color: var(--mm-blue); }
+
+/* Profile pages: portrait beside identity, then long structured lists. */
+.profile-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+  padding-bottom: 1.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.profile-photo {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--mm-crimson);
+}
+.profile-line { color: var(--muted); font-size: .92rem; margin: .2rem 0 0; }
+.profile-head .lede { margin-bottom: .6rem; }
+ol.tick-list { counter-reset: pub; }
+ol.tick-list li::before {
+  counter-increment: pub;
+  content: counter(pub);
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--mm-crimson);
+  font-size: .78rem;
+  font-weight: 700;
+  top: .1em;
+}
+ol.tick-list li { padding-left: 1.7rem; }
+
+@media (max-width: 40rem) {
+  .profile-head { grid-template-columns: 1fr; }
+  .profile-photo { width: 7rem; height: 7rem; }
 }
