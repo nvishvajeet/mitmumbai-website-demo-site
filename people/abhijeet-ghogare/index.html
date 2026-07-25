@@ -8,6 +8,9 @@
   <link rel="canonical" href="https://mitmumbai-demo.vishwanathgrid.org/people/abhijeet-ghogare/">
   <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/tokens.css?v=20260726b">
   <link rel="stylesheet" href="/vendor/university-web-patterns/src/css/media.css?v=20260726b">
+  <link rel="stylesheet" href="/vendor/mitwpu-templates/profile.css?v=20260726b">
+  <link rel="stylesheet" href="/vendor/mitwpu-templates/university.css?v=20260726b">
+  <link rel="stylesheet" href="/assets/wpu-overrides.css?v=20260726b">
   <link rel="stylesheet" href="/assets/site.css?v=20260726b">
   <script>(function(){try{var t=localStorage.getItem("mit-mumbai-theme");if(t!=="light"&&t!=="dark")t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}})();</script>
   <script src="/vendor/university-web-patterns/src/js/hero-task.js?v=20260726b" defer></script>
@@ -20,50 +23,75 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="/">
-        <img class="brand-mark" src="/assets/media/mit-mumbai-logo.png" alt="" width="44" height="44">
-        <span class="brand-text">MIT Mumbai</span>
+  <header class="mm-header">
+    <div class="mm-header-inner">
+      <a class="mm-brand" href="/">
+        <img class="mm-brand-mark" src="/assets/media/mit-mumbai-logo.png" alt="" width="44" height="44">
+        <span class="mm-brand-text">MIT Mumbai</span>
       </a>
       <button class="uwp-nav-toggle" type="button" data-uwp-nav-toggle
         aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
         <span aria-hidden="true"></span>
       </button>
-      <nav class="uwp-nav site-nav" id="primary-nav" aria-label="Primary" data-uwp-nav><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/academics/">Academics</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Academics submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/academics/">All programmes</a><div class="uwp-nav-branch"><span>Engineering</span><div class="uwp-nav-flyout"><a href="/academics/computer-science-and-engineering/">Computer Science and Engineering</a><a href="/academics/computer-science-and-engineering-ai-ml/">CSE (AI &amp; Machine Learning)</a><a href="/academics/information-technology/">Information Technology</a><a href="/academics/electronics-and-communication-engineering/">Electronics and Communication</a></div></div><div class="uwp-nav-branch"><span>Management</span><div class="uwp-nav-flyout"><a href="/academics/bachelor-of-management-studies/">Bachelor of Management Studies</a><a href="/academics/master-of-management-studies/">Master of Management Studies</a></div></div><a href="/academics/calendar/">Calendar and regulations</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/admissions/">Admissions</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/research/">Research</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/people/" aria-current="page">People</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="People submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/people/">Faculty directory</a><a href="/about/leadership/">Leadership</a><a href="/about/governance/">Governance</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/campus/">Campus</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Campus submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/campus/">Campus and facilities</a><a href="/campus/library/">Central Library</a><a href="/campus/student-life/">Student life</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/about/">About</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="About submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/about/">Vision and mission</a><a href="/about/founder/">Founder</a><a href="/about/legacy/">MAEER legacy and the MIT dome</a><a href="/about/quality/">Quality and compliance</a><a href="/about/committees/">Statutory committees</a><a href="/about/partnerships/">Industry partnerships</a><a href="/careers/">Work at MIT Mumbai</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/contact/">Contact</a></div></nav>
-      <button class="theme-toggle" type="button" data-theme-toggle
+      <nav class="uwp-nav mm-nav" id="primary-nav" aria-label="Primary" data-uwp-nav><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/academics/">Academics</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Academics submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/academics/">All programmes</a><div class="uwp-nav-branch"><span>Engineering</span><div class="uwp-nav-flyout"><a href="/academics/computer-science-and-engineering/">Computer Science and Engineering</a><a href="/academics/computer-science-and-engineering-ai-ml/">CSE (AI &amp; Machine Learning)</a><a href="/academics/information-technology/">Information Technology</a><a href="/academics/electronics-and-communication-engineering/">Electronics and Communication</a></div></div><div class="uwp-nav-branch"><span>Management</span><div class="uwp-nav-flyout"><a href="/academics/bachelor-of-management-studies/">Bachelor of Management Studies</a><a href="/academics/master-of-management-studies/">Master of Management Studies</a></div></div><a href="/academics/calendar/">Calendar and regulations</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/admissions/">Admissions</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/research/">Research</a></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/people/" aria-current="page">People</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="People submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/people/">Faculty directory</a><a href="/about/leadership/">Leadership</a><a href="/about/governance/">Governance</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/campus/">Campus</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="Campus submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/campus/">Campus and facilities</a><a href="/campus/library/">Central Library</a><a href="/campus/student-life/">Student life</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/about/">About</a><button class="uwp-nav-item__disclosure" type="button" data-uwp-nav-disclosure aria-expanded="false" aria-label="About submenu"><span aria-hidden="true"></span></button><div class="uwp-nav-menu"><a href="/about/">Vision and mission</a><a href="/about/founder/">Founder</a><a href="/about/legacy/">MAEER legacy and the MIT dome</a><a href="/about/quality/">Quality and compliance</a><a href="/about/committees/">Statutory committees</a><a href="/about/partnerships/">Industry partnerships</a><a href="/careers/">Work at MIT Mumbai</a></div></div><div class="uwp-nav-item" data-uwp-component="nav-cascade"><a class="uwp-nav-item__link" href="/contact/">Contact</a></div></nav>
+      <button class="mm-theme-toggle" type="button" data-theme-toggle
         aria-label="Switch colour theme" aria-pressed="false"></button>
     </div>
   </header>
   <div class="notice-bar"><div class="notice-inner"><span class="notice-label">Notices</span><ul class="notice-list" aria-label="Institute notices"><li>Admissions open for 2025–26</li><li>First-year induction programme concluded</li><li>TechSphere 2025 project exhibition held on 17 November</li><li>AICTE feedback facility open for students and faculty</li></ul></div></div>
   <main id="main" class="shell">
     <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">MIT Mumbai</a> <span aria-hidden="true">/</span> <span aria-current="page">Dr. Abhijeet Ghogare</span></nav>
-    <div class="profile-head">
-      <img class="profile-photo" src="/assets/media/faculty-abhijeet_pic.jpeg" alt="" width="320" height="320">
-      <div>
-        <p class="eyebrow">Faculty</p>
-        <h1>Dr. Abhijeet Ghogare</h1>
-        <p class="lede">Assistant Professor (Mechanical Engineering)</p>
-        <p class="profile-line">PhD: Computational Fluids Dynamics (CFD) in Thermal and Fluids Engineering, NIT Raipur</p>
+    <div class="profile-context">
+      <div class="shell profile-context-inner">
+        <a class="context-back" href="/people/">← Back to the faculty directory</a>
+        <a class="department-context-link" href="/academics/">Programmes taught</a>
       </div>
     </div>
-    <section class="section"><p>Dr. Abhijeet Ghogare was born in Nagpur, Maharashtra, India. He received his B.E. in Mechanical Engineering with First Division from Rashtrasant Tukadoji Maharaj Nagpur University (RTMNU), Nagpur in 2015. He completed his M.Tech in Thermal and Fluids Engineering from NIT Manipur in 2019. He obtained his Ph.D. in Mechanical Engineering from NIT Raipur in 2024. After PhD, he worked for 1 year on the DST/SERB project on helicopter dynamics at MANIT Bhopal.</p><p>He has published 8 research articles (5 SCI-indexed, 3 Scopus-indexed), contributed 1 book chapter, and presented 2 papers in international conferences. His work has received 311 citations with an h-index of 5 and an i10-index of 5 . He is an active member of ISHRAE.</p></section>
-    <section class="section"><h2>Research interests</h2><ul class="tick-list"><li>Computational Fluid Dynamics</li><li>Thermal Comfort</li><li>Green Hydrogen / Biodiesels</li><li>Helicopter Dynamics</li></ul></section>
-    <section class="section"><h2>Selected publications</h2><ol class="tick-list"><li>G. Ghogare et al., “Investigation of indoor environment quality...” Building and Environment , 2021.</li><li>A. G. Ghogare et al., “Numerical simulation for optimization...” Journal of Building Engineering , 2020.</li><li>A. G. Ghogare et al., “Numerical simulation for energy consumption...” Building and Environment , 2022.</li><li>A. G. Ghogare et al., “Effect of inlet airflow direction...” Int. J. Adv. Eng. Tech. , 2020.</li><li>A. G. Ghogare et al., “Energy consumption and thermal comfort assessment...” TSEP , 2024.</li><li>A. G. Ghogare et al., “CFD analysis of natural ventilation...” Energy Sources, Part A , 2025.</li><li>A. G. Ghogare et al., “Impact of outlet vent configurations...” IJAME , Accepted 2025.</li><li>A. G. Ghogare et al., “Multi-objective optimization...” Indoor and Built Environment , Accepted 2025.</li></ol></section>
-    <section class="section"><h2>Conference papers</h2><ol class="tick-list"><li>G. Ghogare et al., “Numerical analysis to investigate the effect of inlet diffuser orientation...” AMEIIM2022, AIP Conf. Proc., 2023.</li><li>A. Patel et al., “Numerical analysis of naturally ventilated indoor environment...” CIEM2022, AIP Conf. Proc., 2023.</li><li>A. G. Ghogare et al., “Numerical investigation to study the effect of inlet inclination...” ICAMME 2021, Springer, 2022.</li></ol></section>
-    <section class="section"><h2>Awards and recognition</h2><ul class="tick-list"><li>GATE Qualified: 2017, 2018, 2022</li></ul></section>
-    <p><a class="button secondary" href="/people/">All faculty</a></p>
+    <article class="profile-hero">
+      <div class="shell profile-hero-grid">
+        <div class="profile-portrait"><img class="profile-photo" src="/assets/media/faculty-abhijeet_pic.jpeg" alt="" decoding="async"></div>
+        <div class="profile-identity">
+          <h1>Dr. Abhijeet Ghogare</h1>
+          <p class="profile-designation">Assistant Professor (Mechanical Engineering)</p>
+        </div>
+      </div>
+    </article>
+    <div class="shell profile-body">
+      <div class="profile-main-sections">
+        <section class="profile-research" aria-labelledby="about-title"><h2 id="about-title">About</h2><p>Dr. Abhijeet Ghogare was born in Nagpur, Maharashtra, India. He received his B.E. in Mechanical Engineering with First Division from Rashtrasant Tukadoji Maharaj Nagpur University (RTMNU), Nagpur in 2015. He completed his M.Tech in Thermal and Fluids Engineering from NIT Manipur in 2019. He obtained his Ph.D. in Mechanical Engineering from NIT Raipur in 2024. After PhD, he worked for 1 year on the DST/SERB project on helicopter dynamics at MANIT Bhopal.</p><p>He has published 8 research articles (5 SCI-indexed, 3 Scopus-indexed), contributed 1 book chapter, and presented 2 papers in international conferences. His work has received 311 citations with an h-index of 5 and an i10-index of 5 . He is an active member of ISHRAE.</p></section>
+        <section class="profile-research" aria-labelledby="research-title"><h2 id="research-title">Research interests</h2><ul><li>Computational Fluid Dynamics</li><li>Thermal Comfort</li><li>Green Hydrogen / Biodiesels</li><li>Helicopter Dynamics</li></ul></section>
+        <section class="profile-research" aria-labelledby="publications-title"><h2 id="publications-title">Selected publications</h2><ol><li>G. Ghogare et al., “Investigation of indoor environment quality...” Building and Environment , 2021.</li><li>A. G. Ghogare et al., “Numerical simulation for optimization...” Journal of Building Engineering , 2020.</li><li>A. G. Ghogare et al., “Numerical simulation for energy consumption...” Building and Environment , 2022.</li><li>A. G. Ghogare et al., “Effect of inlet airflow direction...” Int. J. Adv. Eng. Tech. , 2020.</li><li>A. G. Ghogare et al., “Energy consumption and thermal comfort assessment...” TSEP , 2024.</li><li>A. G. Ghogare et al., “CFD analysis of natural ventilation...” Energy Sources, Part A , 2025.</li><li>A. G. Ghogare et al., “Impact of outlet vent configurations...” IJAME , Accepted 2025.</li><li>A. G. Ghogare et al., “Multi-objective optimization...” Indoor and Built Environment , Accepted 2025.</li></ol></section>
+        <section class="profile-research" aria-labelledby="papers-title"><h2 id="papers-title">Conference papers</h2><ol><li>G. Ghogare et al., “Numerical analysis to investigate the effect of inlet diffuser orientation...” AMEIIM2022, AIP Conf. Proc., 2023.</li><li>A. Patel et al., “Numerical analysis of naturally ventilated indoor environment...” CIEM2022, AIP Conf. Proc., 2023.</li><li>A. G. Ghogare et al., “Numerical investigation to study the effect of inlet inclination...” ICAMME 2021, Springer, 2022.</li></ol></section>
+        <section class="profile-research" aria-labelledby="awards-title"><h2 id="awards-title">Awards and recognition</h2><p>GATE Qualified: 2017, 2018, 2022</p></section>
+      </div>
+      <aside class="profile-sidebar" aria-label="Qualifications and source">
+        <section class="profile-links-section" aria-labelledby="profile-links-title">
+          <p class="eyebrow" id="profile-links-title">Qualifications</p>
+          <div class="profile-links">
+            <span>PhD: Computational Fluids Dynamics (CFD) in Thermal and Fluids Engineering, NIT Raipur</span>
+          </div>
+        </section>
+        <section class="profile-links-section" aria-labelledby="profile-source-title">
+          <p class="eyebrow" id="profile-source-title">Source</p>
+          <div class="profile-links">
+            <a href="https://mitmumbai.edu.in/abhijeet-ghogare" rel="noopener noreferrer" target="_blank">
+              Institute profile <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+      </aside>
+    </div>
   </main>
-  <footer class="site-footer">
-    <div class="footer-inner">
+  <footer class="mm-footer">
+    <div class="mm-footer-inner">
       <div>
-        <p class="footer-name">MAEER&#x27;s MIT Mumbai</p>
-        <p class="footer-address">MAEER&#x27;s Maharashtra Institute of Technology, Near Green Valley Studio, Mira Road, Mumbai, Maharashtra 401107</p>
-        <p class="footer-address">All programmes are affiliated to the University of Mumbai.</p>
+        <p class="mm-footer-name">MAEER&#x27;s MIT Mumbai</p>
+        <p class="mm-footer-address">MAEER&#x27;s Maharashtra Institute of Technology, Near Green Valley Studio, Mira Road, Mumbai, Maharashtra 401107</p>
+        <p class="mm-footer-address">All programmes are affiliated to the University of Mumbai.</p>
       </div>
-      <nav class="footer-nav" aria-label="Footer"><a href="/academics/">Academics</a><a href="/academics/calendar/">Academic calendar and regulations</a><a href="/admissions/">Admissions</a><a href="/research/">Research and scholarship</a><a href="/people/">People</a><a href="/campus/">Campus</a><a href="/campus/library/">Central Library</a><a href="/campus/student-life/">Student life</a><a href="/about/">About MIT Mumbai</a><a href="/about/founder/">Founder</a><a href="/about/legacy/">MAEER legacy and the MIT dome</a><a href="/about/leadership/">Leadership</a><a href="/about/governance/">Governance</a><a href="/about/quality/">Quality and compliance</a><a href="/about/committees/">Statutory committees</a><a href="/about/partnerships/">Industry partnerships</a><a href="/careers/">Work at MIT Mumbai</a><a href="/contact/">Contact</a><a href="/legal/">Legal and notices</a></nav>
+      <nav class="mm-footer-nav" aria-label="Footer"><a href="/academics/">Academics</a><a href="/academics/calendar/">Academic calendar and regulations</a><a href="/admissions/">Admissions</a><a href="/research/">Research and scholarship</a><a href="/people/">People</a><a href="/campus/">Campus</a><a href="/campus/library/">Central Library</a><a href="/campus/student-life/">Student life</a><a href="/about/">About MIT Mumbai</a><a href="/about/founder/">Founder</a><a href="/about/legacy/">MAEER legacy and the MIT dome</a><a href="/about/leadership/">Leadership</a><a href="/about/governance/">Governance</a><a href="/about/quality/">Quality and compliance</a><a href="/about/committees/">Statutory committees</a><a href="/about/partnerships/">Industry partnerships</a><a href="/careers/">Work at MIT Mumbai</a><a href="/contact/">Contact</a><a href="/legal/">Legal and notices</a></nav>
     </div>
-    <p class="footer-note">Concept demo built from the 25 July 2026 public capture of mitmumbai.edu.in. Not an official MIT Mumbai website.</p>
+    <p class="mm-footer-note">Concept demo built from the 25 July 2026 public capture of mitmumbai.edu.in. Not an official MIT Mumbai website.</p>
   </footer>
 </body>
 </html>

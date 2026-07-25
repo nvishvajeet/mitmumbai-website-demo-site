@@ -1,0 +1,58 @@
+/* MIT Mumbai palette for the vendored MIT-WPU templates.
+   The templates in vendor/mitwpu-templates/ are MIT-WPU's own, unchanged. All
+   that differs between the two institutions is colour, so this file remaps
+   their custom properties and touches nothing structural. If a rule here
+   grows past a colour, it belongs in the template instead. */
+
+:root {
+  --ink: #1b1c20;
+  --heading: #2a1216;
+  --title: #4a1d24;
+  --muted: #5d6470;
+  --blue: #b31f38;            /* their link/accent slot carries our crimson */
+  --blue-dark: #8c1428;
+  --solid-blue: #b31f38;
+  --solid-blue-hover: #8c1428;
+  --photo-accent: #b31f38;
+  --blue-pale: #fdf4f2;
+  --paper: #fffdfc;
+  --subtle: #fbf6f5;
+  --topbar: #f7eeec;
+  --institution: #1b3f68;     /* the institution bar keeps MIT Mumbai's blue */
+  --gold: #d68a1e;
+  --line: #e6dcd9;
+  --line-dark: #cfbcb7;
+  --nav: #3a2c30;
+  --copy: #4a4247;
+  --topic: #55474b;
+  --tag: #5d5155;
+  --footer: #1b3f68;
+  --focus: #e39aa7;
+  --shell: 1120px;
+}
+
+:root[data-theme="dark"] {
+  --ink: #f3eeed;
+  --heading: #f6e9ea;
+  --title: #f0d9dc;
+  --muted: #b3adb2;
+  --blue: #ff8296;
+  --blue-dark: #ffa9b7;
+  --solid-blue: #ff8296;
+  --solid-blue-hover: #ffa9b7;
+  --photo-accent: #ff8296;
+  --blue-pale: #241a1d;
+  --paper: #161214;
+  --subtle: #1e181b;
+  --topbar: #201a1d;
+  --institution: #12151b;
+  --gold: #efb35c;
+  --line: #3a2c30;
+  --line-dark: #4c393e;
+  --nav: #e8e2e1;
+  --copy: #ded6d7;
+  --topic: #c8bfc1;
+  --tag: #bcb2b4;
+  --footer: #12151b;
+  --focus: #ff8296;
+}
