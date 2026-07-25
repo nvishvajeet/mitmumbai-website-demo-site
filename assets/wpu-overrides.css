@@ -29,6 +29,7 @@
   --footer: #1b3f68;
   --focus: #e39aa7;
   --shell: 1120px;
+  --navy: #1b3f68;   /* their masthead ground, in MIT Mumbai's blue */
 }
 
 :root[data-theme="dark"] {
@@ -55,4 +56,5 @@
   --tag: #bcb2b4;
   --footer: #12151b;
   --focus: #ff8296;
+  --navy: #12151b;
 }
