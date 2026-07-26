@@ -882,3 +882,13 @@ select { text-overflow: ellipsis; }
   .uwp-hero-task__row { flex-wrap: wrap; }
   .uwp-hero-task__row > * { flex: 1 1 100%; }
 }
+
+/* Provenance line under recovered PDF content: quiet, but always present, so
+   a reader can see where the text came from and check it. */
+.source-note {
+  margin-top: 1.5rem;
+  padding-top: .8rem;
+  border-top: 1px solid var(--line);
+  font-size: .84rem;
+  color: var(--muted);
+}
