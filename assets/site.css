@@ -892,3 +892,12 @@ select { text-overflow: ellipsis; }
   font-size: .84rem;
   color: var(--muted);
 }
+
+/* Course codes are identifiers, not prose — tabular figures keep the column
+   scannable when a reader is comparing a scheme against their own timetable. */
+.data-table .code {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--mm-blue);
+}
